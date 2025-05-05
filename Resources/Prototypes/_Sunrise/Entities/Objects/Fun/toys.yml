@@ -41,22 +41,22 @@
     sound:
       collection: SQUEE
       params:
-        volume: 3
+        volume: 5
   - type: MeleeWeapon
     soundHit:
       collection: SQUEE
       params:
-        volume: 3
+        volume: 5
   - type: EmitSoundOnActivate
     sound:
       collection: SQUEE
       params:
-        volume: 3
+        volume: 5
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Sunrise/Voice/Vulpkanin/dog_growl1.ogg
   - type: UseDelay
-    delay: 5
+    delay: 3
 
 - type: entity
   id: PlushieFour
