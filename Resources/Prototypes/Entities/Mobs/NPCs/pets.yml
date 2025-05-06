@@ -827,9 +827,9 @@
         Caustic: 3  # Sunrise-edit
   - type: MultiHandedItem
   # Sunrise-Edit
-  #- type: Item
-  #  sprite: Mobs/Pets/Smile/smile.rsi
-  #  size: Huge
+  - type: Item
+    sprite: Mobs/Pets/Smile/smile.rsi
+    size: Huge
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
