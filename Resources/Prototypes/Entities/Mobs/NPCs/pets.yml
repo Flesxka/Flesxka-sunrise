@@ -826,7 +826,6 @@
         Blunt: 3  # Sunrise-edit
         Caustic: 3  # Sunrise-edit
   - type: MultiHandedItem
-  # Sunrise-Edit
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Huge
