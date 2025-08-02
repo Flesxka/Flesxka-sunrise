@@ -1156,3 +1156,29 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/_Sunrise/Voice/Vulpkanin/dog_bark2.ogg
+
+- type: entity
+  id: PlushieLand
+  parent: BasePlushie
+  name: Plushie Lila Vinogradova
+  components:
+      - type: Sprite
+        sprite: _Sunrise/Objects/Fun/toys.rsi
+        state:
+      - type: UseDelay
+        delay: 1
+      - type: MeleeWeapon
+        soundHit:
+          collection: SQUEE
+          params:
+            volume: 100
+      - type: EmitSoundOnActivate
+        sound:
+          collection: SQUEE
+          params:
+            volume: 5
+      - type: EmitSoundOnUse
+        sound:
+          collection: SQUEE
+          params:
+            volume: 5
