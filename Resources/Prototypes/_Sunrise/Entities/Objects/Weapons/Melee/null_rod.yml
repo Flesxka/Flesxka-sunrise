@@ -14,3 +14,17 @@
       types:
         Blunt: 10
         Holy: 25
+
+- type: entity
+  name: True Love
+  parent: BaseItem
+  suffix: WIP
+  id: TrueLove
+  description: LandMeow the best
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Objects/Weapons/Melee/null_rod.rsi
+    state: nullrod #TODO: Создать спрайт (WIP)
+  - type: Clothing
+    slots: Neck
+
