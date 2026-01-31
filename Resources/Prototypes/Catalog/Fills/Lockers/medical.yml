@@ -90,6 +90,9 @@
   id: LockerFillChemistry
   table: !type:AllSelector
     children:
+    - id: PatchPack # Sunrise-Added
+    - id: PatchPack # Sunrise-Added
+      prob: 0.5
     - id: BoxSyringe
     - id: BoxBeaker
     - id: BoxBeaker
@@ -119,7 +122,7 @@
   id: LockerFillParamedic
   table: !type:AllSelector
     children:
-    - id: HandheldCrewMonitor # Sunrise-Edit
+    - id: HandheldEmergencyCrewMonitor # Sunrise-Edit
     - id: ClothingOuterHardsuitVoidParamed
     - id: ClothingOuterCoatParamedicWB
     - id: ClothingHeadHatParamedicsoft

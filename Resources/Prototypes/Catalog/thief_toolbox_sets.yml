@@ -6,10 +6,9 @@
     sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
-  - ClothingBackpackChameleonFill
+  - ClothingBackpackChameleonFillAgent
   - ChameleonProjector
   - FakeMindShieldImplanter
-  - AgentIDCard
 
 - type: thiefBackpackSet
   id: ToolsSet
@@ -23,6 +22,7 @@
   - ClothingEyesGlassesMeson
   - ClothingHandsGlovesColorYellow
   - JawsOfLife
+  - ClothingEyesGlassesThermal # Sunrise-Edit
   - FreedomImplant # Sunrise-Edit
   - RemoteSignaller
   - Multitool
@@ -52,7 +52,7 @@
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     state: telecrystal
   content:
-  - RadioJammer
+  - RadioJammerBox # Sunrise-Edit
   - EmpImplanter # Sunrise-Edit
   - CreepyLaughImplanter # Sunrise-Add
   - TraitorCodePaper
@@ -87,7 +87,7 @@
   - EncryptionKeyStationMaster
   - CyberPen
   - BriefcaseThiefBribingBundleFilled
-  - ClothingMaskGasVoiceChameleon
+  - VoiceMaskImplanter
   #- todo Chameleon Stamp
 
 - type: thiefBackpackSet
@@ -103,4 +103,7 @@
   - Fulton
   - SmokeGrenade
   - SmokeGrenade
-  - SmokeGrenade
+  - SmokeScreenImplanter
+  - SyndicateTeleporterBiocode
+  - BolaSyndicateBiocode
+  - BolaSyndicateBiocode

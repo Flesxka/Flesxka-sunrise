@@ -1,18 +1,15 @@
-# НЕ ДОБАВЛЯТЬ НОВЫЕ КАРТЫ БЕЗ МОЕГО РЕВЬЮ! ~ SplikZerys
-
 - type: gameMapPool
   id: SunriseMapPool
   maps:
   - SunriseDelta
-#  - SunriseBox # НЕ ГОТОВО ПРИБЫТИЕ/ОТБЫТИЕ ДЛЯ БОЛЬШОГО ШАТТЛА
-#  - SunrisePlasma # НЕ ГОТОВО ПРИБЫТИЕ/ОТБЫТИЕ ДЛЯ БОЛЬШОГО ШАТТЛА
+  - SunriseBox
+  - SunriseBagel
+  #- SunrisePlasma
   #- SunriseBarratry
   #- SunriseFland
   #- SunriseMarathon
-  #- SunriseBagel
   #- SunrisePacked
   #- SunriseOasis
-  # НЕИГРАБЕЛЬНЫЕ:
   #- SunriseReach
   #- SunriseRelic
   # SUNRISE-TODO: Старые-новые карты

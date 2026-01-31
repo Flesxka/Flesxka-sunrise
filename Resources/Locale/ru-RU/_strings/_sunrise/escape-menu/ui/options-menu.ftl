@@ -3,6 +3,7 @@ ui-options-lobby-background-type = Тип фона лобби
 ui-options-lobby-art = Арт лобби
 ui-options-lobby-animation = Анимация лобби
 ui-options-lobby-parallax = Паралакс лобби
+ui-options-lobby-unload-resources = Выгружать ресурсы лобби из видеопамяти
 ui-options-damage-overlay-enable = Оверлей урона
 ui-options-damage-overlay-structures = Показывать урон по структурам
 ui-options-damage-overlay-self = Показывать урон по себе
@@ -27,10 +28,10 @@ ui-options-function-hold-look-up = Удерживать клавишу для п
 ui-options-chat-icons-enable = Использовать иконки профессий в чате
 ui-options-chat-pointing-visuals-enable = Отображать указывания с иконками в чате
 ui-options-play-heartbeat-sound = Проигрывать звук сердцебиения
-ui-options-trace = Display the bullet's trace
+ui-options-trace = Отображать траекторию пули
 ui-options-trace-tooltip =
-    If you're lagging while shooting, uncheck this box,
-    and the hitscan won't display the texture of the smoke behind the flying bullet.
+    Если у вас задержки при стрельбе, снимите эту галочку,
+    и хитскан не будет отображать текстуру дыма за летящей пулей.
 ui-options-tts-enabled = ТТС интеграция
 ui-options-tts-queue = Использовать очередь для TTS рации?
 ui-options-tts-radio-ghost-enabled = ТТС рации в призраке

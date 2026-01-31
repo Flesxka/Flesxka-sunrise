@@ -1,6 +1,6 @@
 - type: entity
   name: paladin shield
-  parent: [ BaseItem, BaseMajorContraband ] # Easier to remake it than inheret it, due to wiz keeping all shields in one folder and mine doing the opposite, due to the suitslot sprites.
+  parent: [ RepairableShield, BaseMajorContraband ] # Sunrise-Edit
   id: PaladinShield
   description: A shield for a true paladin! Good at deflecting hits with swords and absorbing the impact from bats, but not much else.
   components:
@@ -67,6 +67,17 @@
                 SheetSteel:
                   min: 5
                   max: 13
+    - type: HealthExaminable #Sunrise-Start
+      examinableTypes:
+        - Blunt
+        - Slash
+        - Piercing
+        - Heat
+        - Mangleness
+      locPrefix: shield
+    - type: ClothingSpeedModifier
+      sprintModifier: 0.95
+    - type: HeldSpeedModifier #Sunrise-End
 
 - type: entity
   name: paladin greatshield
@@ -115,7 +126,7 @@
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 250 #Combined with damage resistances, IF raised, can tank 6 lector magdumps before finally breaking. You will STAM CRIT before then. If just held, or a laser is used it'll function like a normal shield more or less.
+            damage: 200 #Combined with damage resistances, IF raised, can tank 5 lector magdumps before finally breaking. You will STAM CRIT before then. If just held, or a laser is used it'll function like a normal shield more or less.
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -300,5 +311,5 @@
                   min: 2
                   max: 10
     - type: Construction
-      graph: MakeshiftShield
-      node: makeshiftShield
+      graph: ImprovisedShieldGraph
+      node: start

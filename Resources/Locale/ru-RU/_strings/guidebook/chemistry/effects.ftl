@@ -1,3 +1,16 @@
+second = { $count ->
+    [one] секунда
+    [few] секунды
+    [many] секунд
+   *[other] секунд
+}
+
+dead = { $count ->
+    [one] мёртвый
+    [few] мёртвых
+    [many] мёртвых
+   *[other] мёртвых
+}
 -create-3rd-person =
     { $chance ->
         [1] Создаёт
@@ -366,3 +379,8 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Removes the
        *[other] remove the
     } seeds of the plant
+reagent-effect-guidebook-cause-flesh-cultist-infection =
+    { $chance ->
+        [1] Вызывает
+       *[other] вызывают
+    } плотскую инфекцию культиста

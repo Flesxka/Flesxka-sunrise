@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using Content.Client._Sunrise.Administration.UI.CustomControls;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared.Administration.Logs;
@@ -243,10 +244,12 @@ public sealed partial class AdminLogsControl : Control
 
         foreach (var child in LogsContainer.Children)
         {
+            // Sunrise edit start - крутые красивые логи
             if (child is not SunriseAdminLogLabel log)
             {
                 continue;
             }
+            // Sunrise edit end
 
             child.Visible = ShouldShowLog(log);
             if (child.Visible)
@@ -270,6 +273,7 @@ public sealed partial class AdminLogsControl : Control
                button.Text.Contains(PlayerSearch.Text, StringComparison.OrdinalIgnoreCase);
     }
 
+    // Sunrise edit - крутые красивые логи
     private bool LogMatchesPlayerFilter(SunriseAdminLogLabel label)
     {
         if (label.Log.Players.Length == 0)
@@ -278,6 +282,7 @@ public sealed partial class AdminLogsControl : Control
         return SelectedPlayers.Overlaps(label.Log.Players);
     }
 
+    // Sunrise edit - крутые красивые логи
     private bool ShouldShowLog(SunriseAdminLogLabel label)
     {
         // Check log type
@@ -470,7 +475,11 @@ public sealed partial class AdminLogsControl : Control
         {
             ref var log = ref span[i];
             var separator = new HSeparator();
+
+            // Sunrise edit start - крутые красивые логи
             var label = new SunriseAdminLogLabel(ref log, separator);
+            // Sunrise edit end
+
             label.Visible = ShouldShowLog(label);
 
             TotalLogs++;

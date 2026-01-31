@@ -32,6 +32,8 @@ ent-ActionActivateSmokeGrenadeImplant = Активировать дымовую 
     .desc = Создаёт небольшое облако дыма вокруг вас.
 ent-ActionActivateScramImplant = УДРАТЬ!
     .desc = Случайным образом телепортирует вас на большое расстояние.
+ent-ActionActivateScramImplantProto = { ent-ActionActivateScramImplant }
+    .desc = { ent-ActionActivateScramImplant.desc }
 ent-ActionActivateDnaScramblerImplant = Перемешать ДНК
     .desc = Меняет ваше имя и внешность случайным образом.
 ent-ActionToggleSuitPiece = Переключить элементы костюма
@@ -68,6 +70,8 @@ ent-FakeMindShieldToggleAction = [color=green]Переключить фейко�
     .desc = Включить/выключить передачу фейкового импланта щита разума
 ent-ActionToggleParamedicSiren = Переключить сирену парамедика
     .desc = Включает или выключает сирену парамедика.
+ent-ActionGravityJump = Прыжок
+    .desc = Активируя продвинутую двигательную систему, вы отталкиваетесь на небольшое расстояние в направлении взгляда.
 ent-ActionToggleRootable = Укорениться
     .desc = Начать или перестать быть прикреплённым к полу.
 ent-ActionChameleonController = Измените свою одежду

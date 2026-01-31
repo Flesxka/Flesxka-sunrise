@@ -234,7 +234,7 @@
 
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
-  parent: [ClothingEyesBase, BaseToggleClothing]
+  parent: [ClothingEyesBase, BaseToggleClothing, PowerCellSlotSmallItem] # Sunrise-edit
   id: ClothingEyesGlassesThermal
   name: optical thermal scanner
   description: Thermals in the shape of glasses.
@@ -259,6 +259,20 @@
     parent: true
     components:
     - type: ThermalVision
+  - type: PowerCellDraw
+    drawRate: 3.5
+    useCharge: 20
+  - type: ItemToggle
+    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    onUse: false
+    canActivateInhand: false
+    soundActivate:
+      path: /Audio/_Sunrise/Items/Goggles/activate.ogg
+    soundDeactivate:
+      path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ToggleCellDraw
   # Sunrise-End
 
 - type: entity
@@ -280,12 +294,7 @@
       - WhitelistChameleon
 
 - type: entity
-  parent: [
-      ClothingEyesBase,
-      BaseMajorContraband,
-      PowerCellSlotSmallItem,
-      BaseNightVisionDevice,
-    ] # Sunrise-Edit
+  parent: [ClothingEyesBase, BaseHighlyIllegalContraband,BaseNightVisionDevice]
   id: ClothingEyesVisorNinja
   name: ninja visor
   description: An advanced visor protecting a ninja's eyes from flashing lights.
@@ -296,6 +305,14 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
   # Sunrise-Start
+  - type: ToggleClothing
+    action: ActionToggleThermalVision
+    disableOnUnequip: true
+    targetSlot: eyes
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: ThermalVision
   - type: ItemToggle
     predictable: false
     onUse: false
@@ -306,24 +323,16 @@
       path: /Audio/_Sunrise/Items/Goggles/deactivate.ogg
     soundFailToActivate:
       path: /Audio/Machines/button.ogg
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellSmall
-  - type: ToggleCellDraw
-  - type: PowerCellDraw
-    drawRate: 3.5
-    useRate: 20
+  - type: NinjaSuitDraw
+    drawRate: 2
+    useRate: 1
+  - type: ToggleNinjaSuitDraw
+  - type: UseDelay
+    delay: 1
   # Sunrise-End
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesNoir
   name: noir-tech glasses
   description: A pair of glasses that simulate what the world looked like before the invention of color.

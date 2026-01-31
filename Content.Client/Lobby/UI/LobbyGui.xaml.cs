@@ -11,10 +11,13 @@ using Content.Client.Parallax.Managers;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Shared._Sunrise.SunriseCCVars;
+using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI
 {
@@ -27,6 +30,7 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private readonly IUriOpener _uriOpener = default!;
 
         public string LobbyParallax = "FastSpace"; // Sunrise-edit
         public bool ShowParallax; // Sunrise-edit
@@ -142,19 +146,62 @@ namespace Content.Client.Lobby.UI
 
             LobbySongPanel.PanelOverride = _back;
 
-            _configurationManager.OnValueChanged(SunriseCCVars.LobbyOpacity, OnLobbyOpacityChanged);
-            _configurationManager.OnValueChanged(SunriseCCVars.ServersHubEnable, OnServersHubEnableChanged);
-            _configurationManager.OnValueChanged(SunriseCCVars.ServiceAuthEnabled, OnServiceAuthEnableChanged);
-            _configurationManager.OnValueChanged(SunriseCCVars.ServerName, OnServerNameChanged, true);
+            SocialButtonsPanel.PanelOverride = _back;
 
-            SetLobbyOpacity(_configurationManager.GetCVar(SunriseCCVars.LobbyOpacity));
-            SetServersHubEnable(_configurationManager.GetCVar(SunriseCCVars.ServersHubEnable));
-            SetUserProfileEnable(_configurationManager.GetCVar(SunriseCCVars.ServiceAuthEnabled));
+            _configurationManager.OnValueChanged(SunriseCCVars.LobbyOpacity, OnLobbyOpacityChanged, true);
+            _configurationManager.OnValueChanged(SunriseCCVars.ServersHubEnable, OnServersHubEnableChanged, true);
+            _configurationManager.OnValueChanged(SunriseCCVars.ServiceAuthEnabled, OnServiceAuthEnableChanged, true);
+            _configurationManager.OnValueChanged(SunriseCCVars.ServerName, OnServerNameChanged, true);
 
             Chat.SetChatOpacity();
 
             ServerName.Text = Loc.GetString("ui-lobby-welcome", ("name", _serverName));
             LoadIcons();
+
+            SetupButtonIcon(AHelpButton, "/Textures/Interface/info.svg.192dpi.png", Loc.GetString("ui-lobby-ahelp-button"));
+            SetupButtonIcon(MHelpButton, "/Textures/Interface/mentor.svg.192dpi.png", Loc.GetString("ui-lobby-mhelp-button"));
+            SetupButtonIcon(CallVoteButton, "/Textures/Interface/gavel.svg.192dpi.png", Loc.GetString("ui-vote-menu-button"));
+            SetupButtonIcon(OptionsButton, "/Textures/Interface/VerbIcons/settings.svg.192dpi.png", Loc.GetString("ui-lobby-options-button"));
+            SetupButtonIcon(LeaveButton, "/Textures/Interface/VerbIcons/close.svg.192dpi.png", Loc.GetString("ui-lobby-leave-button"));
+
+            SetupButtonIcon(DiscordButton, "/Textures/Interface/discord.svg.192dpi.png", Loc.GetString("server-info-discord-button"));
+            SetupButtonIcon(WikiButton, "/Textures/Interface/wiki.svg.192dpi.png", Loc.GetString("server-info-wiki-button"));
+            SetupButtonIcon(TelegramButton, "/Textures/Interface/telegram.svg.192dpi.png", Loc.GetString("server-info-telegram-button"));
+            SetupButtonIcon(ReplaysButton, "/Textures/Interface/replay.svg.192dpi.png", Loc.GetString("ui-lobby-replays-button"));
+
+            DiscordButton.OnPressed += _ =>
+            {
+                var url = _configurationManager.GetCVar(CCVars.InfoLinksDiscord);
+                if (!string.IsNullOrEmpty(url))
+                    _uriOpener.OpenUri(url);
+            };
+
+            WikiButton.OnPressed += _ =>
+            {
+                var url = _configurationManager.GetCVar(CCVars.InfoLinksWiki);
+                if (!string.IsNullOrEmpty(url))
+                    _uriOpener.OpenUri(url);
+            };
+
+            TelegramButton.OnPressed += _ =>
+            {
+                var url = _configurationManager.GetCVar(CCVars.InfoLinksTelegram);
+                if (!string.IsNullOrEmpty(url))
+                    _uriOpener.OpenUri(url);
+            };
+
+            ReplaysButton.OnPressed += _ =>
+            {
+                var url = _configurationManager.GetCVar(SunriseCCVars.InfoLinksReplays);
+                if (!string.IsNullOrEmpty(url))
+                    _uriOpener.OpenUri(url);
+            };
+
+            _configurationManager.OnValueChanged(CCVars.InfoLinksDiscord, OnDiscordLinkChanged, true);
+            _configurationManager.OnValueChanged(CCVars.InfoLinksWiki, OnWikiLinkChanged, true);
+            _configurationManager.OnValueChanged(CCVars.InfoLinksTelegram, OnTelegramLinkChanged, true);
+            _configurationManager.OnValueChanged(SunriseCCVars.InfoLinksReplays, OnReplaysLinkChanged, true);
+
             // Sunrise-end
         }
 
@@ -203,6 +250,7 @@ namespace Content.Client.Lobby.UI
         private void OnServiceAuthEnableChanged(bool enable)
         {
             SetUserProfileEnable(enable);
+            SetContributorsEnable(enable);
         }
 
         private void SetServersHubEnable(bool enable)
@@ -210,9 +258,34 @@ namespace Content.Client.Lobby.UI
             ServersHubBox.Visible = enable;
         }
 
+        private void SetContributorsEnable(bool enable)
+        {
+            ContributorsBox.Visible = enable;
+        }
+
         private void SetUserProfileEnable(bool enable)
         {
             UserProfileBox.Visible = enable;
+        }
+
+        private void OnDiscordLinkChanged(string url)
+        {
+            DiscordButton.Visible = !string.IsNullOrEmpty(url);
+        }
+
+        private void OnWikiLinkChanged(string url)
+        {
+            WikiButton.Visible = !string.IsNullOrEmpty(url);
+        }
+
+        private void OnTelegramLinkChanged(string url)
+        {
+            TelegramButton.Visible = !string.IsNullOrEmpty(url);
+        }
+
+        private void OnReplaysLinkChanged(string url)
+        {
+            ReplaysButton.Visible = !string.IsNullOrEmpty(url);
         }
         // Sunrise-End
 
@@ -252,7 +325,7 @@ namespace Content.Client.Lobby.UI
         //    ExpandPanel.Visible = !value;
         //}
 
-        // Sunrise-start
+        // Sunrise-Start
         protected override void Draw(DrawingHandleScreen handle)
         {
             if (!ShowParallax)
@@ -297,7 +370,27 @@ namespace Content.Client.Lobby.UI
                 }
             }
         }
-        // Sunrise-end
+
+        private void SetupButtonIcon(Button button, string iconPath, string tooltip)
+        {
+            button.Text = string.Empty;
+            button.ToolTip = tooltip;
+
+            var iconRect = new TextureRect
+            {
+                Texture = _resourceCache.GetTexture(new ResPath(iconPath)),
+                TextureScale = new Vector2(0.5f, 0.5f),
+                HorizontalAlignment = HAlignment.Center,
+                VerticalAlignment = VAlignment.Center,
+                Stretch = TextureRect.StretchMode.KeepAspectCentered,
+                HorizontalExpand = true,
+                VerticalExpand = true
+            };
+
+            button.RemoveAllChildren();
+            button.AddChild(iconRect);
+        }
+        // Sunrise-End
 
         public enum LobbyGuiState : byte
         {

@@ -1,4 +1,4 @@
-ent-WeaponEnergyCrossbow = energy crossbow
-    .desc = Fires low-damage kinetic bolts at a short range.
-ent-WeaponMiniEnergyCrossbow = mini energy crossbow
-    .desc = Fires low-damage kinetic bolts at a short range.
+ent-WeaponEnergyCrossbowLarge = энергетический арбалет
+    .desc = Выстреливает кинетическими болтами с низким уроном на короткой дистанции.
+ent-WeaponEnergyCrossbow = малый энергетический арбалет
+    .desc = Выстреливает кинетическими болтами с низким уроном на короткой дистанции.

@@ -1,7 +1,10 @@
+using Content.Server.Database.Migrations.Postgres;
 using Content.Server.UserInterface;
 using Content.Shared._Sunrise.TTS;
 using Content.Shared.Communications;
+using JetBrains.Annotations;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Communications
@@ -75,11 +78,29 @@ namespace Content.Server.Communications
         /// In practise this removes the "Sent by ScugMcWawa (Slugcat Captain)" at the bottom of the announcement.
         /// </summary>
         [DataField]
-        public bool AnnounceSentBy = true;
+        public bool AnnounceSentBy = false;
 
         // Sunrise-Start
-        [DataField("announceVoice", customTypeSerializer:typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
-        public string AnnounceVoice = "Hanson";
-        // Sunrise-Start
+        [DataField]
+        public ProtoId<TTSVoicePrototype>? AnnounceVoice = "Hanson";
+
+        [ViewVariables]
+        public bool IsRelaying;
+
+        [ViewVariables]
+        public float RelayTimeRemaining;
+
+        [ViewVariables]
+        public float RelayCooldownRemaining;
+
+        [DataField]
+        public float RelayDuration = 60f;
+
+        [DataField]
+        public float RelayCooldown = 300f;
+
+        [DataField]
+        public float RelayRange = 7f;
+        // Sunrise-End
     }
 }

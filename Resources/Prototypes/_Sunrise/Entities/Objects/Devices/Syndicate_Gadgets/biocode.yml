@@ -1,0 +1,21 @@
+- type: entity
+  parent: SyndicateTeleporter
+  id: SyndicateTeleporterBiocode
+  suffix: BIOCODE
+  components:
+  - type: Biocode
+    factions:
+    - Syndicate
+    - Thief
+
+- type: entity
+  parent: DefibrillatorSyndicate
+  id: DefibrillatorSyndicateBiocode
+  suffix: BIOCODE
+  components:
+  - type: Biocode
+    factions:
+    - Syndicate
+  - type: FactionWeaponBlocker
+    factions:
+    - Syndicate

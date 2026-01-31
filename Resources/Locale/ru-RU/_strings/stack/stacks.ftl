@@ -15,6 +15,7 @@ stack-reinforced-plasma-glass = армированное плазменное с
 stack-reinforced-uranium-glass = армированное урановое стекло
 stack-gunpowder = порох
 stack-cardboard = картон
+stack-phosphorus = фосфорный порошок
 stack-bones =
     { $amount ->
         [1] кость
@@ -277,5 +278,6 @@ stack-asteroid-astro-sand-floor = пол из астероидного астр�
 stack-xeno-floor = ксено-пол
 stack-xeno-steel = плитка из ксено-стали
 stack-xeno-steel-corner = угловая плитка из ксено-стали
+stack-xenoborg = ксеноборговая плитка
 stack-xeno-maint = ксено-техзона
 stack-dark-squiggly = темная стальная волнистая плитка

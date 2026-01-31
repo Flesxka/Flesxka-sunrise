@@ -13,6 +13,7 @@
                 <ui:OptionDropDown Name="DropDownLobbyAnimation" Title="{Loc 'ui-options-lobby-animation'}" />
                 <ui:OptionDropDown Name="DropDownLobbyParallax" Title="{Loc 'ui-options-lobby-parallax'}" />
                 <ui:OptionSlider Name="LobbyOpacitySlider" Title="{Loc 'ui-options-lobby-opacity'}" />
+                <CheckBox Name="LobbyUnloadResourcesCheckBox" Text="{Loc 'ui-options-lobby-unload-resources'}" />
 
                 <!-- Combat -->
                 <Label Text="{Loc 'ui-options-sunrise-general-combat'}"
@@ -31,7 +32,6 @@
                 <CheckBox Name="TtsRadioGhostCheckBox" Text="{Loc 'ui-options-tts-radio-ghost-enabled'}" />
                 <ui:OptionSlider Name="SliderTts" Title="{Loc 'ui-options-tts-volume'}" />
                 <ui:OptionSlider Name="SliderTtsRadio" Title="{Loc 'ui-options-tts-radio-volume'}" />
-                <ui:OptionSlider Name="SliderTtsAnnounce" Title="{Loc 'ui-options-tts-announce-volume'}" />
                 <CheckBox Name="TapePlayerClientCheckBox" Text="{Loc 'ui-options-tape-player-enabled'}" />
                 <CheckBox Name="JumpSoundDisableCheckBox" Text="{Loc 'ui-options-jump-sound-disable'}" />
                 <CheckBox Name="VoteMusicDisableCheckBox" Text="{Loc 'ui-options-vote-music-disable'}" />

@@ -5,6 +5,7 @@ gun-selected-mode = Выбран { $mode }
 gun-disabled = Вы не можете использовать оружие!
 gun-clumsy = Оружие взрывается вам в лицо!
 gun-set-fire-mode = Выбран режим { $mode }
+gun-alert-level-condition = Слишком низкий станционный код для этого режима стрельбы!
 gun-magazine-whitelist-fail = Это не помещается в оружие!
 gun-magazine-fired-empty = Патронов не осталось!
 gun-Insulated-gloves = У вас слишком толстые пальцы чтобы нажать курок!
@@ -13,8 +14,8 @@ gun-SemiAuto = полуавто
 gun-Burst = очередь
 gun-FullAuto = авто
 # BallisticAmmoProvider
-gun-ballistic-cycle = Перезарядка
-gun-ballistic-cycled = Перезаряжено
+gun-ballistic-cycle = Передернуть
+gun-ballistic-cycled = Передёрнуто
 gun-ballistic-cycled-empty = Разряжено
 gun-ballistic-transfer-invalid = { CAPITALIZE($ammoEntity) } нельзя поместить в { $targetEntity }!
 gun-ballistic-transfer-empty = В { CAPITALIZE($entity) } пусто.
@@ -42,10 +43,15 @@ gun-chamber-rack = Передёрнуть затвор
 # MagazineAmmoProvider
 gun-magazine-examine =
     Тут [color={ $color }]{ $count }[/color] { $count ->
-        [one] штука
-        [few] штуки
-       *[other] штук
+        [one] выстрел
+        [few] выстрела
+       *[other] выстрелов
     }.
+# 🌟Starlight - Start🌟
+gun-magazine-ammo-type = Содержит [color={$color}]{$type}[/color].
+gun-magazine-empty = Магазин пуст.
+# 🌟Starlight - End🌟
+
 # RevolverAmmoProvider
 gun-revolver-empty = Разрядить револьвер
 gun-revolver-full = Револьвер полностью заряжен
